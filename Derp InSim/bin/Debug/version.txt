@@ -1,0 +1,100 @@
+- 2.3.0 (11th Febuary 2016)
+
+* Updated for LFS 0.6L - a very large number of new packets and changes (see lfs\docs\insim.txt for details)
+* Library now uses InSim version 7
+* InSim object no longer throws ObjectDisposed exception when being reused to connect to LFS
+* Fixed encoding issue that occasionally caused garbled strings to be sent to LFS
+* Changed InSim.Send(IEnumerable<ISendable>) method to InSim.Send(params ISendable[]) which provides better syntax
+* Fixed missing VIEW_ANOTHER identifier to ViewIdentifiers
+* Added new StringHelpers: StripLanguage(string), Strip(string), Unescape(string), Escape(string), and PacketDump(IPacket)
+* Added Rockingham to TrackHelper
+
+- 2.2.0 (3rd April 2015)
+
+* Updated library for LFS 0.6H (added IS_NCI packet, added TINY_NCI, updated IS_REO/IS_NLP, added IS_NCI to PacketFactory).
+* Fixed big in PitWorkFlags (thanks to MariusMM for fix)
+* Added new Westhill configurations to TrackHelper (thanks to NeOn_sp)
+* Added new objects to ObjectHelper (thanks to NeOn_sp)
+
+- 2.1.3 (15th October 2014)
+
+* Fixed bug introduced in previous release that could cause InSim.NET to crash.
+
+- 2.1.2 (13th October 2014)
+
+* Made PacketFactory public.
+* Added async methods to TcpSocket and UdpSocket.
+* Tweaked way packet errors are handled.
+
+- 2.1.1 (29th September 2014)
+
+* Added new IS_HCP packet and HandicapHelper class.
+* Added ContinueOnCapturedContext property to InSim, OutSim, OutGauge, TcpSocket and UdpSocket classes. Setting this to false prevents InSim.NET from marshalling packet callbacks back onto the calling thread e.g. in UI programs.
+* Fixed bug that allowed players to crash InSim.NET by typing characters in LFS that were not translatable into unicode.
+* TcpSocket and UdpSocket now expose their underlying .NET Socket objects for convienence.
+
+- 2.1.0 (19th August 2014)
+
+* InSim.NET now requires.NET 4.5 or better
+* Added missing leave reasons
+* Fixed string encoding issues that prevented the library from working on Mono
+* Fixed incorrect remote property in IS_NCN
+* Fixed bug PLT_REMOTE in PlayerTypes was incorrect
+* Fixed TyreCompound enum and added TYRE_NONE
+* Fixed issue with IS_AXM Info list being set to wrong size
+* Added BytesSent and BytesReceived properties.
+
+- 2.0.14 (6th March 2012)
+
+* Various improvements to InSim.Send() methods.
+* Fixed bug where OutSim.IsConnected would throw a exception if no connection timeout was specified.
+* Unicode string encoding is now more strict.
+
+- 2.0.13 (11th Dec 2011)
+
+* Fixed bug in MSO packet if player name contains double-byte characters
+
+- 2.0.12 (30th July 2011)
+
++ TcpSocket and UdpSocket now deal better with corrupted packets
+* Fixed bug in TcpSocket.Send when full buffer isn't sent
+
+- 2.0.11 (20th June 2011)
+
++ Renamed AutoXActionFlags to just ActionFlags
++ IS_REO and IS_AXM now throw an exception when too many PLIDs or objects added
++ IS_AXM and IS_REO now accept an IEnumerable with their sub-packet thingies
++ Added ReplayOptions.RIPOPT_FULL_PHYS.
+* Changed IS_AXM.Info from ICollection to IList
+* Added PLID property to OutGaugeEVentArgs
+* Size field in IS_BTN and IS_MTC now updates to correct size after those packets are sent
+* Fixed error with index in EncodingHelper.GetBytes.
+* Fixed crash when string was too long and was at the end of a packet
+* Fixed bug in Tyres class
+
+- 2.0.10 (15th June 2011)
+
++ Added ObjectHelper static class (thanks to broken)
+* Fixed several bugs in sending IS_AXM packet
+
+- 2.0.9 (11th June 2011)
+
++ Updated to LFS 0.6A1
++ Added open configs to TrackHelper
+
+- 2.0.8 (27th April 2011)
+
+* Fixed bug with sending buttons with double-byte characters in the text
++ Updated for InSim 5
+
+- 2.0.7 (22nd April 2011)
+
+* Fixed bug with receiving UDP packets.
+
+- 2.0.6 (9th April 2011)
+
+* Small tweaks to code, mainly improvements to documentation
+
+- 2.0.5 (5th April 2011)
+
+= Initial release of InSim.NET 2.0
